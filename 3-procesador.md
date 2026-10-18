@@ -10,6 +10,7 @@ Asignar núcleos de CPU específicos:
 ```
 
 **¿Como saber el numero de procesadores virtuales que tiene una máquina?**
+En Linux o dentro de WSL: nproc o lscpu. En Windows (CMD): echo %NUMBER_OF_PROCESSORS%. También sirve docker info, que muestra la línea CPUs con los que tiene disponibles Docker. Es útil para saber qué valores puedes usar en --cpus y --cpuset-cpus.
 ## COMPLETAR
 
 ## Ejemplos
