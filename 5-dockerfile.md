@@ -57,6 +57,7 @@ No olvides verificar en qué directorio se encuentra el archivo Dockerfile
 ```
 
 **¿Cuántos pasos se han ejecutado?**
+
 Se ejecutaron 5 pasos (de [1/5] a [5/5]), que corresponden a las instrucciones que crean una capa en la imagen: FROM, los dos RUN de yum, el RUN sed que corrige los repositorios y el COPY. Las instrucciones EXPOSE y CMD no se cuentan porque solo agregan metadatos a la imagen. 
 # RESPONDER 
 
@@ -82,10 +83,12 @@ docker run -d --name server-apache -P imagen-apache:1.1
 ```
 
 ### ¿Con que puerto host se está realizando el mapeo?
+
 El mapeo se realiza con el puerto 32768 del host, que apunta al puerto 80 del contenedor (0.0.0.0:32768->80/tcp). Ese puerto lo asignó Docker automáticamente porque usaste la opción -P, que publica el puerto expuesto con EXPOSE 80 en un puerto aleatorio del host.
 # COMPLETAR CON LA RESPUESTA
 
 **¿Qué es una imagen huérfana?**
+
 Una imagen huérfana (dangling) es una imagen sin nombre ni etiqueta, que aparece como <none>:<none> en docker images, y que ya no está referenciada por ninguna otra imagen con tag. Suele aparecer cuando reconstruyes una imagen con el mismo nombre y tag la nueva se queda con la etiqueta y la anterior pierde la suya. Si quieres generar una para probar los comandos de la guía, modifica el index.html y vuelve a ejecutar docker build -t imagen-apache:1.1 .. Luego usa docker images -f "dangling=true", docker images -f "dangling=true" -q y docker image prune.
 # COMPLETAR CON LA RESPUESTA
 
